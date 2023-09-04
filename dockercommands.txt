@@ -33,3 +33,11 @@ docker network create --driver=bridge --subnet=100.100.0.0/24 bosch1
    22  docker network ls
    23  clear
    24  history
+ 1  clear
+    2  docker run -d --name=c9 --hostname=samosa.vadapav.com httpd
+    3  docker exec c9 hostname
+    4  docker exec c9 cat /etc/os-release
+    5  docker exec c9 ls /dev
+    6  docker exec c9 date
+    7  docker exec c9 id
+    8  history
