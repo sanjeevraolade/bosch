@@ -13,3 +13,23 @@ docker inspect httpd | less
 
 http://15.207.89.214:8080/
 docker network create --driver=bridge --subnet=100.100.0.0/24 bosch1
+  5  docker run -d --name=net1 --network=bosch1 --ip=100.100.0.100 --dns=8.8.8.8 --cpus="00000001" --memory=15M -p 9095:80 httpd
+    6  docker inspect net1 | grep -i ipaddr
+    7  docker inspect net1 | less
+    8  ip a s
+    9  nmcli c show
+   10  clear
+   11  ip a s
+   12  docker run -d --name=c43 httpd
+   13  ip a s
+   14  clear
+   15  nmcli c show
+   16  nmtui
+   17  nmcli --help
+   18  man nmcli
+   19  nmcli dev show
+   20  nmcli c show
+   21  nmcli dev show br-2cc4107e9cbb
+   22  docker network ls
+   23  clear
+   24  history
