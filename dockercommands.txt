@@ -41,3 +41,16 @@ docker network create --driver=bridge --subnet=100.100.0.0/24 bosch1
     6  docker exec c9 date
     7  docker exec c9 id
     8  history
+==============================================
+
+ docker export c9 -o c9.tar
+     7  docker import c9.tar
+    8  docker images
+   10  docker tag faa94eccd21e  myweb:v1.0
+   11  docker images
+     16  docker run -d --name=myc2 -p 9098:80 myweb:v1.0 sleep 10000
+   17  docker ps -a
+   18  docker exec -it myc2 bash
+   19  docker images
+   20  clear
+   21  history
