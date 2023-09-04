@@ -75,3 +75,21 @@ docker network create --driver=bridge --subnet=100.100.0.0/24 bosch1
    28  cd ~
    29  docker run -d --name=v2 -v /data:/var/lib/mysql -p 3307:3306 -e MYSQL_ROOT_PASSWORD=123 mysql
    30  history
+=====================
+
+
+   30  history
+   31  getenforce
+   32  clear
+   33  docker volume ls
+   34  docker volume create v1
+   35  docker volume ls
+   36  docker run -d --name=v3 -v v1:/var/lib/mysql -p 3308:3306 -e MYSQL_ROOT_PASSWORD=123 mysql
+   37  docker ps
+   38  clear
+   39  cd /var/lib/docker/volumes/v1/_data/
+   40  ls
+   41  cd /var/lib/docker/volumes/
+   42  ls
+   43  # tmpfs
+   44  docker run -d --name=t1 --tmpfs /data httpd
