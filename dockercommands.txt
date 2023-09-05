@@ -113,3 +113,6 @@ docker network create --driver=bridge --subnet=100.100.0.0/24 bosch1
    31  ls -lZ 1.txt
    32  docker run -d --name=c3 -v /data:/data:Z httpd
    33  history
+---------------------------------
+semanage port -a -t http_port_t -p tcp 420
+--------------------------------
