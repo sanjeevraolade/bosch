@@ -197,3 +197,11 @@ curl -SL https://github.com/docker/compose/releases/download/v2.18.1/docker-comp
 chmod a+x /usr/local/bin/docker-compose
 cp /usr/local/bin/docker-compose /usr/bin
  docker-compose --help
+===============
+[root@ip-172-31-15-16 dockerfiles]# cat frontend.df
+FROM ubuntu
+
+RUN apt update -y
+RUN apt install apache2 -y
+RUN DEBIAN_FRONTEND=noninteractive apt install  php -y
+CMD ["apache2ctl","-D","FOREGROUND"]
