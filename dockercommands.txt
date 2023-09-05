@@ -205,3 +205,7 @@ RUN apt update -y
 RUN apt install apache2 -y
 RUN DEBIAN_FRONTEND=noninteractive apt install  php -y
 CMD ["apache2ctl","-D","FOREGROUND"]
+-------------------------------
+
+ 119  docker rmi -f $(docker images -a -q)
+ docker rm -f $(docker ps -a -q)
