@@ -116,3 +116,21 @@ docker network create --driver=bridge --subnet=100.100.0.0/24 bosch1
 ---------------------------------
 semanage port -a -t http_port_t -p tcp 420
 --------------------------------
+ 61  docker ps -a
+   62  docker rm -f $(docker ps -a -q)
+   63  ps fxa | grep docker -A 3
+   64  docker run -d --name=c1 httpd
+   65  clear
+   66  ps fxa | grep docker -A 6
+   67  systemctl stop httpd
+   68  ps fxa | grep docker -A 6
+   69  clear
+   70  ps fxa | grep docker -A 6
+   71  docker ps
+   72  ps fxa | grep docker -A 9
+   73  docker ps
+   74  kill -9 20590
+   75  docker ps
+   76  docker ps -a
+   77  docker start c1
+   78  ps fxa | grep docker -A 12
