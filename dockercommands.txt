@@ -93,3 +93,23 @@ docker network create --driver=bridge --subnet=100.100.0.0/24 bosch1
    42  ls
    43  # tmpfs
    44  docker run -d --name=t1 --tmpfs /data httpd
+-----------------------------------------
+
+ 16  docker run -d --name=c1 httpd
+   17  docker run -d --name=c2 --privileged=true  httpd
+   18  docker ps
+   19  docker exec c1 ls /dev
+   20  docker exec c1 ls /dev | wc -l
+   21  docker exec c2 ls /dev
+   22  docker exec c2 ls /dev | wc -l
+   23  clear
+   24  cd ~
+   25  mkdir /data
+   26  cd /data/
+   27  touch 1.txt
+   28  ls -l 1.txt
+   29  clear
+   30  ls -l 1.txt
+   31  ls -lZ 1.txt
+   32  docker run -d --name=c3 -v /data:/data:Z httpd
+   33  history
