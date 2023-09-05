@@ -134,3 +134,41 @@ semanage port -a -t http_port_t -p tcp 420
    76  docker ps -a
    77  docker start c1
    78  ps fxa | grep docker -A 12
+---------------------------------------------
+[root@ip-172-31-15-16 dockerfiles]# cat 1.df
+FROM ubuntu
+
+LABEL "app"="prod"
+LABEL "com.example.vendor"="ACME Incorporated"
+LABEL com.example.label-with-value="foo"
+LABEL version="1.0"
+LABEL description="This text illustrates \
+that label-values can span multiple lines."
+
+MAINTAINER "trainier@bosch.com"
+
+WORKDIR /home/A
+WORKDIR B
+WORKDIR C
+
+COPY 1.txt /home
+ADD 2.txt /home/A
+ADD 1.tar.gz /home/A/B/C
+
+RUN  apt update -y
+RUN  apt install apache2 -y
+
+copy index.html /var/www/html
+
+EXPOSE 80
+
+VOLUME v1
+ENV dish=samosa
+ENV hostname=pavbhaji
+ARG dish1=vadapav
+RUN useradd s1
+ENTRYPOINT ["apache2ctl","-D","FOREGROUND"]
+----------------------------------------
+
+
+ docker build . -f 1.df -t image:v1.0 --no-cache
