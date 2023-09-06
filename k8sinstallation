@@ -78,3 +78,5 @@ Step 10 ( Only fire on master node)
 
 kubeadm init --pod-network-cidr=10.244.0.0/16  --control-plane-endpoint=3.110.134.95 --ignore-preflight-errors=Mem --cri-socket /run/containerd/containerd.sock 
 ===============================================
+Step11 (Only fire on master nodes)
+kubectl create -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
