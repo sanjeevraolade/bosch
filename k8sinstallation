@@ -70,6 +70,6 @@ systemctl status kubelet
 
 kubectl version
 kubeadm version
-kubelet version
+kubelet --version
 
 =================================
