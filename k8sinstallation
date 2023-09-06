@@ -32,3 +32,10 @@ sudo sysctl --system
 lsmod | grep br_netfilter
 lsmod | grep overlay
 sysctl net.bridge.bridge-nf-call-iptables net.bridge.bridge-nf-call-ip6tables net.ipv4.ip_forward
+==============
+Step7 -- fire on all nodes
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+systemctl enable --now docker
+docker ps
+ =======================
