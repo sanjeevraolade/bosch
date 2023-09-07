@@ -96,3 +96,40 @@ kubectl create -f https://github.com/flannel-io/flannel/releases/latest/download
     6  kubectl get pods -o wide
     7  curl 10.244.1.2
     8  history
+==============================================
+
+   1  clear
+    2  kubectl create namespace ibm
+    3  kubectl create namespace google
+    4  kubectl create namespace bosch
+    5  kubectl get ns
+    6  kubectl delete ns ibm
+    7  clear
+    8  kubectl run app1 --image=nginx
+    9  kubectl get ns
+   10  kubectl get pods
+   11  kubectl run app1 --image=nginx -n bosch
+   12  kubectl run app2 --image=nginx -n bosch
+   13  kubectl run app3 --image=nginx -n bosch
+   14  kubectl get pods -n bosch
+   15  kubectl get pods
+   16  kubectl delete pod app1
+   17  kubectl get pods
+   18  clear
+   19  kubectl get pods -n bosch
+   20  kubectl delete pod app1 -n bosch
+   21  kubectl delete pod app2 -n bosch
+   22  kubectl delete pod app3 -n bosch
+   23  kubectl create deployment app1 --image=httpd -n bosch
+   24  kubectl delete pod app1-74bf69b5dc-mw4xn -n bosch
+   25  kubectl create deployment app2 --image=httpd -n bosch --replicas=3
+   26  kubectl delete pod app2-779f94b56-hcw8b -n bosch
+   27  kubectl scale deployment/app2 --replicas=1 -n bosch
+   28  kubectl scale deployment/app2 --replicas=0 -n bosch
+   29  clear
+   30  history
+   31  kubectl scale deployment/app2 --replicas=100 -n bosch
+   32  clear
+   33  kubectl scale deployment/app2 --replicas=1 -n bosch
+   34  history
+===================================
