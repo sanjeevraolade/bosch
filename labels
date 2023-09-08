@@ -14,3 +14,14 @@
    17  kubectl delete deployment -l app=d1 -n bosch
    18  clear
    19  kubectl get nodes --show-labels
+  25  kubectl run pod1 --image=httpd
+   26  kubectl get pods --show-labels
+  
+   28  kubectl label pod pod1  app=prod1
+   29  kubectl get pods --show-labels
+   30  kubectl label pod pod1  app=prod2
+   31  kubectl label pod pod1  app1=prod2
+   32  kubectl get pods --show-labels
+   33  kubectl label pod pod1  app1-
+   34  kubectl get pods --show-labels
+   35  history
