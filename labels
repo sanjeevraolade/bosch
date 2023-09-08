@@ -1,0 +1,16 @@
+ 4  kubectl create deployment sample1 --image=nginx --dry-run=client -o yaml
+    5  kubectl create deployment sample1 --image=nginx --dry-run=client -o yaml > sample1.yaml
+    6  ls
+    7  vi sample1.yaml
+    8  clear
+    9  kubectl get pods -n bosch --show-labels
+   10  kubectl run pod1 --image=httpd -l app=prod -n bosch
+   11  kubectl run pod2 --image=httpd -l app=prod -n bosch
+   12  kubectl run pod3 --image=httpd -l app=prod -n bosch
+   13  kubectl get pods -n bosch --show-labels
+   14  kubectl delete pod -l app=prod -n bosch
+   15  kubectl get deployment -n bosch --show-labels
+   16  kubectl delete deployment -l app=d1
+   17  kubectl delete deployment -l app=d1 -n bosch
+   18  clear
+   19  kubectl get nodes --show-labels
