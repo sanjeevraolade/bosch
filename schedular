@@ -1,0 +1,25 @@
+NodeSelector:
+
+ 537  kubectl label node worker1 disk=ssd
+  538  kubectl get nodes --show-labels
+  539  kubectl apply -f app1.yaml
+  540  kubectl get pods -o wide
+  541  vi app1.yaml
+  542  kubectl apply -f app1.yaml
+  543  kubectl get pods -o wide
+
+  spec:
+      containers:
+      - name: nginx-cont
+        image: nginx
+        ports:
+        - containerPort: 80
+        resources:
+         limits:
+           cpu: 300m
+           memory: 200Mi
+         requests:
+           cpu: 150m
+           memory: 100Mi
+      nodeSelector:
+        disk: ssd
