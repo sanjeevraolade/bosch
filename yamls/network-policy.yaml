@@ -1,3 +1,82 @@
+[root@master ~]# cat np2.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+  namespace: audi
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
+[root@master ~]# cat np3.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+  namespace: audi
+spec:
+  policyTypes:
+  - Ingress
+  podSelector:
+    matchLabels:
+      pod: audi1
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          ns: bmw
+      podSelector:
+        matchLabels:
+          pod: bmw1
+[root@master ~]# cat np4.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+  namespace: audi
+spec:
+  policyTypes:
+  - Ingress
+  podSelector:
+    matchLabels:
+      pod: audi1
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          ns: bmw
+    - podSelector:
+        matchLabels:
+          pod: bmw1
+
+
+-----------------------
+
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+  namespace: audi
+spec:
+  policyTypes:
+  - Ingress
+  podSelector:
+    matchLabels:
+      pod: audi1
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          ns: tata
+    - namespaceSelector:
+        matchLabels:
+          ns: bmw
+      podSelector:
+        matchLabels:
+          pod: bmw1
+
+---------------------
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
