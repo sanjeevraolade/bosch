@@ -89,6 +89,7 @@ Step11 (Only fire on master nodes)
 kubectl create -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
 curl https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/canal.yaml -O
 kubectl apply -f canal.yaml
+(To read more about cni comparision , please https://kubevious.io/blog/post/comparing-kubernetes-container-network-interface-cni-providers)
 ===========
  1  kubectl get pods -n kube-system
     2  kubectl create -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
