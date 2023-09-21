@@ -1,0 +1,15 @@
+wget https://github.com/etcd-io/etcd/releases/download/v3.3.12/etcd-v3.3.12-linux-amd64.tar.gz
+tar xvf etcd-v3.3.12-linux-amd64.tar.gz
+sudo mv etcd-v3.3.12-linux-amd64/etcd* /usr/local/bin
+
+
+
+FOr backup:
+1.	Take a snapshot of the etcd datastore using etcdctl:
+$ sudo ETCDCTL_API=3 etcdctl snapshot save snapshot.db --cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/etcd/server.crt --key /etc/kubernetes/pki/etcd/server.key
+sudo ETCDCTL_API=3 etcdctl snapshot status snapshot.db
+
+
+To restore 
+
+ ETCDCTL_API=3 etcdctl snapshot restore snapshot.db --endpoints=https://127.0.0.1:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key --name=master  --data-dir=/var/lib/etcd --initial-cluster=kubeadm-master=https://172.31.30.78:2380 --initial-cluster-token=etcd-cluster-1 --initial-advertise-peer-urls=https://172.31.30.78:2380
