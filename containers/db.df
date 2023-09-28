@@ -1,1 +1,15 @@
+[root@docker dockerfiles]# cat createtables.sql
+create table emp (firstname varchar(20), lastname varchar(20));
+create table emp1 (firstname varchar(20), lastname varchar(20));
+create table emp2 (firstname varchar(20), lastname varchar(20));
+create table emp3 (firstname varchar(20), lastname varchar(20));
+[root@docker dockerfiles]# vi insertvalues.sql
+[root@docker dockerfiles]#
+[root@docker dockerfiles]# cat insertvalues.sql
+insert into emp values('A1','K1');
+insert into emp values('A2','K2');
+insert into emp values('A3','K3');
+insert into emp values('A4','K4');
+============================================
+
 
