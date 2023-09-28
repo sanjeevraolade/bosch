@@ -18,4 +18,6 @@ ENV MYSQL_DATABASE bosch
 
 COPY ./createtables.sql /docker-entrypoint-initdb.d/
 COPY ./insertvalues.sql /docker-entrypoint-initdb.d/
-
+--------------------------------------------------------
+alter user 'root'@'localhost' identified with mysql_native_password by '123';
+alter user 'root'@'%' identified with mysql_native_password by '123';
