@@ -12,4 +12,10 @@ insert into emp values('A3','K3');
 insert into emp values('A4','K4');
 ============================================
 
+[root@docker dockerfiles]# cat db.df
+FROM mysql
+ENV MYSQL_DATABASE bosch
+
+COPY ./createtables.sql /docker-entrypoint-initdb.d/
+COPY ./insertvalues.sql /docker-entrypoint-initdb.d/
 
