@@ -1,0 +1,23 @@
+[root@master ~]# cat samosa-basic.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+  namespace: samosa
+spec:
+  policyTypes:
+  - Ingress
+  podSelector:
+    matchLabels:
+      d: s1
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          ns: tata
+    - podSelector:
+        matchLabels:
+          d: s2
+    - namespaceSelector:
+        matchLabels:
+          name: ibm
