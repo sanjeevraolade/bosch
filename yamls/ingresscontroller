@@ -61,6 +61,7 @@ spec:
               ------------------------------
 
 kubectl apply -f ingressrules.yaml
+ kubectl get ingress
   567  curl first.priartw.com
   570  curl second.priartw.com
 
