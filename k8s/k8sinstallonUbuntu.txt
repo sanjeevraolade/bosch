@@ -1,6 +1,3 @@
-Step1 (Fire on all three nodes )
-
-sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 
 
 Step2 : (Fire on all nodes)
