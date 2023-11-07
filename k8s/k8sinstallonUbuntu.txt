@@ -64,4 +64,9 @@ kubeadm init --pod-network-cidr=10.244.0.0/16 --upload-certs --kubernetes-versio
  mkdir -p $HOME/.kube
  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
+====================
 
+Step10 (Only fire on master nodes)
+kubectl create -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
+curl https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/canal.yaml -O
+kubectl apply -f canal.yaml
