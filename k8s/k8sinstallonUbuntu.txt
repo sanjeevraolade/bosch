@@ -1,3 +1,7 @@
+hostnamectl set-hostname master
+hostnamectl set-hostname worker1
+hostnamectl set-hostname worker2
+
 
 
 Step2 : (Fire on all nodes)
