@@ -55,3 +55,7 @@ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 sudo apt update
 sudo apt-get install -y kubelet=1.28.0-00 kubeadm=1.28.0-00 kubectl=1.28.0-00
+=======
+step9 : only on master node
+
+kubeadm config images pull --cri-socket /run/containerd/containerd.sock --kubernetes-version v1.28.0
