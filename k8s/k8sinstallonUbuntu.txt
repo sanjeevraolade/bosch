@@ -59,3 +59,4 @@ sudo apt-get install -y kubelet=1.28.0-00 kubeadm=1.28.0-00 kubectl=1.28.0-00
 step9 : only on master node
 
 kubeadm config images pull --cri-socket /run/containerd/containerd.sock --kubernetes-version v1.28.0
+kubeadm init --pod-network-cidr=10.244.0.0/16 --upload-certs --kubernetes-version=v1.28.0 --control-plane-endpoint=publicIPofMasterIP --ignore-preflight-errors=Mem --cri-socket /run/containerd/containerd.sock
