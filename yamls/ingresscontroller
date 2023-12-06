@@ -58,6 +58,17 @@ spec:
             name: pod2
             port:
               number: 80
+  - host: biryani.prishaworld.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: app2s1
+            port:
+              number: 80
+   
               ------------------------------
 
 kubectl apply -f ingressrules.yaml
