@@ -28,6 +28,9 @@ kubectl run pod1 --image=httpd
 kubectl run pod2 --image=nginx
 kubectl expose pod/pod1 --type=ClusterIP --port=80
 kubectl expose pod/pod2 --type=ClusterIP --port=80
+kubectl get pods
+kubectl get svc
+
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
 -------------------------------------
 vi ingressrules.yaml
