@@ -16,4 +16,4 @@ spec:
     command: ['sh', '-c',  'sleep 20']
   - name: init-mydb
     image: busybox:1.28
-    command: ['sh', '-c', 'sleep 20'
+    command: ['sh', '-c', 'sleep 20']
