@@ -52,15 +52,20 @@ sudo systemctl enable containerd
 ========================
 step8 (Fire on all nodes)
 
-sudo apt-get update
-sudo apt-get install -y apt-transport-https ca-certificates curl gpg
-curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+ 23  sudo apt-get update
+   24  sudo apt-get install -y apt-transport-https ca-certificates curl gpg
+   25  curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+   26  echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+   27  sudo apt-get update
+   28  sudo apt-get install -y kubelet kubeadm kubectl
+   29  sudo apt-mark hold kubelet kubeadm kubectl
+   30  sudo systemctl enable --now kubelet
 
-echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 
-sudo apt-get update
-sudo apt-get install -y kubelet kubeadm kubectl
-sudo apt-mark hold kubelet kubeadm kubectl
+   33  kubelet --version
+   34  kubeadm version
+   35  kubectl version
+
 
 
 =======
