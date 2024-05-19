@@ -1,7 +1,11 @@
+sudo -i
 hostnamectl set-hostname master
+bash
+sudo -i
 hostnamectl set-hostname worker1
+bash
 hostnamectl set-hostname worker2
-
+bash
 
 
 Step2 : (Fire on all nodes)
