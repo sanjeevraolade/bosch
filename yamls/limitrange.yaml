@@ -14,3 +14,26 @@ spec:
     min:
       cpu: 10m
     type: Container
+=============================================
+==============================================
+
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: cpu-resource-constraint
+  namespace: trainer
+spec:
+  limits:
+  - default: # this section defines default limits
+      cpu: 20m
+      memory: 20M
+    defaultRequest: # this section defines default requests
+      cpu: 10m
+      memory: 10M
+    max: # max and min define the limit range
+      cpu: 50m
+      memory: 40M
+    min:
+      cpu: 10m
+      memory: 10M
+    type: Container
