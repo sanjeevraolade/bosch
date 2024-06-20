@@ -1,7 +1,7 @@
 useradd -m jean
 cd /home/jean/
 openssl genrsa -out jean.key 2048
-touch /root/.rnd  ### for ubuntu
+###touch /root/.rnd  ### for ubuntu
 openssl req -new -key jean.key -out jean.csr -subj "/CN=jean"
 openssl x509 -req -in jean.csr -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -out jean.crt -days 500
 mkdir .certs && mv jean.crt jean.key .certs
@@ -12,8 +12,3 @@ kubectl config set-context jean-context --cluster=kubernetes --namespace=develop
 kubectl config get-contexts
 kubectl --context=jean-context get pods
 ----------------------------------------------
-openssl req -new -key DevDan.key -out DevDan.csr -subj "/CN=DevDan/O=development"
-kubectl config delete-context DevDan-context \
-       --cluster=kubernetes \
-       --namespace=development \
-       --user=DevDan
