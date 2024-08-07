@@ -1,3 +1,40 @@
+root@master:/yamls/bosch/yamls# cat notata-to-ibm.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: notata-to-ibm
+  namespace: ibm
+spec:
+  policyTypes:
+  - Ingress
+  - Egress
+  podSelector: {}
+  ingress: []
+  egress: []
+
+root@master:/yamls/bosch/yamls# cat tata-to-ibm.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: tata-to-ibm
+  namespace: ibm
+spec:
+  policyTypes:
+  - Ingress
+  podSelector:
+    matchLabels:
+      pod: ibm1
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          ns: tata
+      podSelector:
+        matchLabels:
+          pod: tata1
+
+
+===============
 [root@master ~]# cat np2.yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
